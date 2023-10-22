@@ -1,5 +1,4 @@
 export const CountryCard = ({country, setSelectedCountry,  setFilteredCountries}) => {
-  console.log('holaa')
 
   function copyCountry(){
     if(!country.showCountry){

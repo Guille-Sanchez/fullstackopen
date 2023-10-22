@@ -1,3 +1,5 @@
+import { CapitalWeather } from "./CapitalWeather"
+
 export const RenderSingleCountry = ({selectedCountry, filteredCountries}) => {
   let country = null
 
@@ -24,6 +26,7 @@ export const RenderSingleCountry = ({selectedCountry, filteredCountries}) => {
             </ul>
           </div>
           <img src={country.flags.png} alt={country.name + 'flag'} width={200} height={125}/>
+          <CapitalWeather country={country} />
         </div>
       )
   }
