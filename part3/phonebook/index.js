@@ -3,7 +3,7 @@ import morgan from "morgan";
 import cors from 'cors'
 
 const app = express()
-app.use(cors)
+app.use(cors('*'))
 
 morgan.token('response-content', (req, res) => {
   return JSON.stringify(req.body);
