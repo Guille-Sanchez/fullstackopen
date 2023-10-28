@@ -35,6 +35,7 @@ let people = [
 ]
 
 app.use(express.json())
+app.use(express.static('dist'))
 
 app.get('/api/persons', (_request, response)=> {
     response.json(people)
