@@ -28,6 +28,8 @@ export const PersonForm =  ({setPersons, setNewName, setNumber, newName, number,
       setMessage({state: 'success', message: `Added ${newName}`})
       setPersons(persons.concat({ name: newName, number: number, id: crypto.randomUUID()}))
       setNewName(''); setNumber('')
+    } else {
+      setMessage({state: 'error', message: error.errorMessage})
     }
   }
 
