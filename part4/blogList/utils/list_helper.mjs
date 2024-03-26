@@ -55,5 +55,34 @@ const mostBlogs = (blogs) => {
 
   return mostActiveWriter
 }
+const mostLikes = (blogs) => {
+  const likesByAuthor = {}
 
-export {dummy, totalLikes, favoriteBlog, mostBlogs}
+  if (blogs.length === 0) {
+    return null
+  }
+
+  blogs.forEach((blog) => {
+    if (likesByAuthor[blog.author]) {
+      likesByAuthor[blog.author] += blog.likes
+    } else {
+      likesByAuthor[blog.author] = blog.likes
+    }
+  })
+
+  let mostLikedAuthor = ''
+  let maxLikes = 0
+  for (const author in likesByAuthor) {
+    if (likesByAuthor[author] > maxLikes) {
+      mostLikedAuthor = author
+      maxLikes = likesByAuthor[author]
+    }
+  }
+
+  return {
+    author: mostLikedAuthor,
+    likes: maxLikes,
+  }
+}
+
+export {dummy, totalLikes, favoriteBlog, mostBlogs, mostLikes}
